@@ -1,0 +1,183 @@
+  * {
+      margin: 0;
+      padding: 0;
+  }
+
+  body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+      background-color:white;
+  }
+
+  .cabecalhoChat {
+      flex: 1;
+      background-color: lightblue;
+      display: flex;
+      min-height: 60px;
+      flex-wrap: wrap;    
+      align-items: center;
+      justify-content: center;
+  }
+
+  .containerTituloChat {
+      display: flex;
+      flex: 12;
+      justify-content: center;
+      
+  }
+
+  .tituloChat {
+      font-family: 'Courier New',Monospace;
+      font-size: 2.3em;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: white;
+      color: white;
+      margin: 7px;
+  }
+
+  .containerBtnLogout{
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      margin-right: 7px;
+  }
+
+  .btn {
+      background-color: blueviolet;
+  }
+
+  .btnLogout {
+    font-weight: bolder;
+    background: red;
+    color: white;
+    border-radius: 3px;
+    border: solid red 1px;
+    padding: 3px;
+  }
+
+  .btnLogout:hover {
+    background: red;
+    color: white;
+    border: solid white 1px;
+    cursor: pointer;
+  }
+
+  .containerCorpo {
+      display: flex;
+      flex: 10;
+      flex-direction: row;
+  }
+
+  .listaOnline {
+      flex: 2;
+      background-color: #427DAF;
+      border-radius: 3px;
+      align-items: stretch;
+      padding: 15px;
+      margin: 10px;
+  }
+
+  .containerChatMsgBox{
+      flex: 8;
+      display: flex;  
+      flex-direction: column;
+      margin:10px;
+      
+  }
+
+  .chat {
+      padding: 15px;
+      border-radius: 3px;
+      background-color: #CBEEF3;
+      flex: 12;
+      margin-bottom:10px;
+      overflow-y:auto
+  }
+
+  .msgTyping {
+      padding: 15px;
+      border-radius: 3px;
+      flex: 0.01; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .msgBox {
+      padding: 0px 0px 0px 0px;
+      border-radius: 3px;
+      background-color:#94AEB1;
+      flex: 1.5; 
+      display: flex;
+      justify-content: center;     
+      min-height: 40px;
+  }
+
+  .messagesLimpa {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  .containerInput {
+    display: flex;
+    flex:14;
+  }
+  
+  .inputMensagem {
+    display: flex;
+    flex:1;
+  }
+  
+  .inputMensagem input {
+    flex:1;
+    margin: 5px;
+    font-size: 1em;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: Green;
+    background-color:#94AEB1;
+  }
+
+  .containerBtn {
+    display:flex;
+    flex:0.1;
+    align-items: center;
+    justify-content: center; 
+    min-width: 100px;
+  }
+
+  .btnEnviar {
+    font-weight: bolder;
+    background: Green;
+    color: white;
+    border: solid Green 1px;
+    padding: 3px;
+  }
+  
+  .btnEnviar:hover{
+    border: solid black 1px;
+    cursor: pointer;
+  }
+
+  .btnEnviarMsg {
+    display:flex;
+    flex:0.9;
+    align-items: center;
+    justify-content: center; 
+  }
+  
+  .enviar {
+    flex:1;
+    font-size: 1em;
+  }
+
+  #messages li { 
+    padding: 5px 10px;
+  }
+
+  #messages li:nth-child(odd) { 
+    background: white;
+    border-radius: 3px;
+  }

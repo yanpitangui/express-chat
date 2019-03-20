@@ -12,12 +12,12 @@ $( document ).ready(function() {
   /*global io*/
   var socket = io();
   socket.on('user', function(data){
-  $('#num-users').text(data.currentUsers+' user(s) online');
+  $('#num-users').text(data.currentUsers+' Usuário (s) Online');
   var message = data.name;
   if(data.connected) {
-    message += ' has joined the chat.';
+    message += ' é mais um otário logado!';
   } else {
-    message += ' has left the chat.';
+    message += ' é vacilão e deslogou!';
   }
     
   $('#listaUsuarios').html("");
@@ -34,7 +34,8 @@ $( document ).ready(function() {
   
   socket.on('chat message', function(data) {
     $('#messages').append($('<li>').html('<b>'+data.name + ': ' + data.message +'<\/b>'));
-    $('#messages').scrollTop($('#messages')[0].scrollHeight);
+    $('div.chat').scrollTop($('div.chat')[0].scrollHeight);
+    Notification.requestPermission();
     if (document.hidden) {
       Notification.requestPermission().then(function(permission) { 
       if(permission === 'granted') {
@@ -46,35 +47,59 @@ $( document ).ready(function() {
           icon: 'https://cdn.glitch.com/054ae6c2-367c-4bd7-bc58-3f0aee51ecc4%2Ftoxic-xxl.png?1548695517512' //The URL of an image to be used as an icon
         });
         noty.onclick = function () {
-            window.focus();
+            parent.focus();
             noty.close();
         };
       }
     });
     // do what you need
     }
-    
+    $('#messages').linkify();
   });
   
+  var textarea = $('#m');
+  var typingStatus = $('#typing');
+  var usersTyping = [];
+  var lastTypedTime = new Date(0);
+  var typingDelayMillis = 3000;
+
+  function refreshTypingStatus() {
+      const ut = usersTyping.map((value)=>{return value.name});
+      if(ut.length==0) {
+        typingStatus.html('');
+      }
+      else if(ut.length>=4){
+        typingStatus.html('Muita gente está escrevendo...');
+      } else {
+        const typingstring = ut.join(', ') + ' ' + (ut.length==1? 'está': 'estão') + ' escrevendo...';
+        typingStatus.html(typingstring);
+      }
+  }
+  function updateLastTypedTime() {
+      if(new Date().getTime() - lastTypedTime.getTime() > typingDelayMillis) {
+        socket.emit('writing', new Date());
+        lastTypedTime = new Date();
+      }
+  }
+
+  setInterval(refreshTypingStatus, 1000);
+  textarea.keypress(updateLastTypedTime);
+  textarea.blur(refreshTypingStatus);
   
   socket.on('user writing', function(data) {
-    console.log(data);  
+    console.log('evento chegou');
+    usersTyping.push(data);
+    refreshTypingStatus();
+    setTimeout(function(){ 
+      limpaEscrevendo(data.name);
+    }, typingDelayMillis-100);
   });
-
   
-  
-var messageTextField = $('#m');
-var canPublish = true;
-var throttleTime = 3000; //3 seconds
-
-messageTextField.on('keyup', function(event) {
-  if(canPublish) {
-    socket.emit('writing', new Date());
-    canPublish = false;
-    setTimeout(function() {
-      canPublish = true;
-    }, throttleTime);
+  function limpaEscrevendo(usuario) {
+    usersTyping = usersTyping.filter(function(value) {
+      return value.name!==usuario;
+      
+    });
   }
-});
 
 });

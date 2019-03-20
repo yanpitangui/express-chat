@@ -1,30 +1,44 @@
 html
   head
-    title Chat do Yan
+    title Chat da Galera
     meta(name='description', content='Home page')
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='viewport', content='width=device-width, initial-scale=1')
-    link(rel='stylesheet', href='/public/style.css')
+    script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js", integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo", crossorigin="anonymous")
     link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.6.3/css/all.css", integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" , crossorigin="anonymous")
-  body
-    div.top.center
-      h1 Chat do Yan
-      a(href='/logout') 
-        button#logout 
-          i.fas.fa-sign-out-alt(aria-hidden='true') Logout  
-    div
-    div.box-lista
-      p#num-users.center
-      div.lista#listaUsuarios
-    div.chat.center
-      .content
-        ul#messages
-        form(action='')
-          input#m(autocomplete='off')
-          button.botao 
-            i.fa.fa-arrow-right
-    script(src='https://code.jquery.com/jquery-2.2.1.min.js', integrity='sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=', crossorigin='anonymous')
+    link(rel='stylesheet', href='/public/styleChat.css')
+  body 
+  
+
+    header.cabecalhoChat
+      div.containerTituloChat
+        h1.tituloChat Chat da Galera
+      div.containerBtnLogout
+        a(href='/logout')
+          button.btnLogout
+            i.fas.fa-sign-out-alt(aria-hidden='true') Logout
+        
+        
+    div.containerCorpo
+      div.listaOnline 
+        p#num-users
+        div#listaUsuarios
+      
+      div.containerChatMsgBox
+        div.chat
+          ul.messagesLimpa#messages
+        div.msgTyping
+          div#typing        
+        form(action='').msgBox 
+            div.containerInput 
+              div.inputMensagem
+                input#m(autocomplete='off')
+              button(type='submit').containerBtn.btnEnviar
+                i.fa.fa-arrow-right   Enviar
+
+        
     script(src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.min.js')
+    script(src='/public/linkify.min.js')
+    script(src='/public/linkify-jquery.min.js')
     script(src='/public/client.js')
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">

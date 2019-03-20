@@ -24,7 +24,7 @@ module.exports = function (app, db) {
     passport.use(new GitHubStrategy({
         clientID: process.env.GITHUB_CLIENT_ID,
         clientSecret: process.env.GITHUB_CLIENT_SECRET,
-        callbackURL: "https://chat-do-yan.glitch.me/auth/github/callback"
+        callbackURL: "https://chat-da-galera.glitch.me/auth/github/callback"
       },
       (accessToken, refreshToken, profile, cb) => {
           db.collection('chatusers').findOneAndUpdate(

@@ -8,6 +8,14 @@ module.exports = function (app, db) {
       }
       res.redirect('/');
     };
+  
+  
+    function alreadyAuthenticated(req, res, next) {
+      if(req.isAuthenticated()){
+        res.redirect('/chat');
+      }
+      return next();
+    }
 
     app.route('/auth/github')
       .get(passport.authenticate('github'));
@@ -19,7 +27,7 @@ module.exports = function (app, db) {
       });
 
     app.route('/')
-      .get((req, res) => {
+      .get(alreadyAuthenticated, (req, res) => {
         res.render(process.cwd() + '/views/pug/index');
       });
 

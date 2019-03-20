@@ -32,6 +32,9 @@ app.use(session({
   store: sessionStore,
 }));
 
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+}
 
 mongo.connect(process.env.MONGO_URI, { useNewUrlParser: true }, (err, db) => {
     if(err) console.log('Database error: ' + err);
@@ -51,12 +54,15 @@ mongo.connect(process.env.MONGO_URI, { useNewUrlParser: true }, (err, db) => {
     //start socket.io code  
     io.on('connection', socket => {
       let written = new Date();
-       ++currentUsers;
-      listaUsuarios.push(socket.request.user.name);
-      io.emit('user', {name: socket.request.user.name, currentUsers, connected: true, listaUsuarios: listaUsuarios});
+      if(!isInArray(socket.request.user.name, listaUsuarios)) {
+        listaUsuarios.push(socket.request.user.name);
+        currentUsers = listaUsuarios.length;
+        io.emit('user', {name: socket.request.user.name, currentUsers, connected: true, listaUsuarios: listaUsuarios});
+      }
+
       socket.on('disconnect', ()=>{
-        --currentUsers;
         listaUsuarios = listaUsuarios.filter((elem)=> { return elem!==socket.request.user.name; });
+        currentUsers = listaUsuarios.length;
         io.emit('user', {name: socket.request.user.name, currentUsers, connected: false, listaUsuarios: listaUsuarios});
       });
       socket.on('chat message', message => {
@@ -64,7 +70,7 @@ mongo.connect(process.env.MONGO_URI, { useNewUrlParser: true }, (err, db) => {
       });
       
       socket.on('writing', date => {
-        //socket.broadcast.emit('user writing', {name: socket.request.user.name, date: date});
+        socket.broadcast.emit('user writing', {name: socket.request.user.name, date: date});
       });
     });
 

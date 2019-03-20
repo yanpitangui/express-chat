@@ -1,10 +1,10 @@
 dependencies:
   body-parser: 1.18.3
-  cookie-parser: 1.4.3
+  cookie-parser: 1.4.4
   cors: 2.8.5
   express: 4.16.4
   express-session: 1.15.6
-  helmet: 3.15.0
+  helmet: 3.16.0
   mongodb: 3.1.12
   passport: 0.4.0
   passport-github: 1.1.0
@@ -262,7 +262,7 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA==
-  /cookie-parser/1.4.3:
+  /cookie-parser/1.4.4:
     dependencies:
       cookie: 0.3.1
       cookie-signature: 1.0.6
@@ -270,7 +270,7 @@ packages:
     engines:
       node: '>= 0.8.0'
     resolution:
-      integrity: sha1-D+MfoZ0AC5X0qt8fU/3CuKIDuqU=
+      integrity: sha512-lo13tqF3JEtFO7FyA49CqbhaFkskRJ0u/UAiINgrIXeRCY41c88/zxtrECl8AKH3B0hj9q10+h3Kt8I7KlW4tw==
   /cookie-signature/1.0.6:
     dev: false
     resolution:
@@ -344,6 +344,12 @@ packages:
       node: '>= 0.6'
     resolution:
       integrity: sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=
+  /depd/2.0.0:
+    dev: false
+    engines:
+      node: '>= 0.8'
+    resolution:
+      integrity: sha512-g7nH6P6dyDioJogAAGprGpCtVImJhpPk/roCzdb3fIh61/s/nPsfR6onyMwkCAR/OlC3yBC0lESvUoQEAssIrw==
   /destroy/1.0.4:
     dev: false
     resolution:
@@ -596,8 +602,9 @@ packages:
     dev: false
     resolution:
       integrity: sha512-sCHwywg4daQ2mY0YYwXSZRsgcCeerUwxMwNixGA7aMLkVmPTYBl7gJoZDHOZyXkqPrtuDT3s2B1A+RLI7WxSdQ==
-  /helmet/3.15.0:
+  /helmet/3.16.0:
     dependencies:
+      depd: 2.0.0
       dns-prefetch-control: 0.1.0
       dont-sniff-mimetype: 1.0.0
       expect-ct: 0.1.1
@@ -607,16 +614,16 @@ packages:
       helmet-csp: 2.7.1
       hide-powered-by: 1.0.0
       hpkp: 2.0.0
-      hsts: 2.1.0
-      ienoopen: 1.0.0
+      hsts: 2.2.0
+      ienoopen: 1.1.0
       nocache: 2.0.0
       referrer-policy: 1.1.0
       x-xss-protection: 1.1.0
     dev: false
     engines:
-      node: '>= 0.10.0'
+      node: '>=4.0.0'
     resolution:
-      integrity: sha512-j9JjtAnWJj09lqe/PEICrhuDaX30TeokXJ9tW6ZPhVH0+LMoihDeJ58CdWeTGzM66p6EiIODmgAaWfdeIWI4Gg==
+      integrity: sha512-rsTKRogc5OYGlvSHuq5QsmOsOzF6uDoMqpfh+Np8r23+QxDq+SUx90Rf8HyIKQVl7H6NswZEwfcykinbAeZ6UQ==
   /hide-powered-by/1.0.0:
     dev: false
     resolution:
@@ -625,10 +632,14 @@ packages:
     dev: false
     resolution:
       integrity: sha1-EOFCJk52IVpdMMROxD3mTe5tFnI=
-  /hsts/2.1.0:
+  /hsts/2.2.0:
+    dependencies:
+      depd: 2.0.0
     dev: false
+    engines:
+      node: '>=4.0.0'
     resolution:
-      integrity: sha512-zXhh/DqgrTXJ7erTN6Fh5k/xjMhDGXCqdYN3wvxUvGUQvnxcFfUd8E+6vLg/nk3ss1TYMb+DhRl25fYABioTvA==
+      integrity: sha512-ToaTnQ2TbJkochoVcdXYm4HOCliNozlviNsg+X2XQLQvZNI/kCHR9rZxVYpJB3UPcHz80PgxRyWQ7PdU1r+VBQ==
   /http-errors/1.6.3:
     dependencies:
       depd: 1.1.2
@@ -648,10 +659,12 @@ packages:
       node: '>=0.10.0'
     resolution:
       integrity: sha512-neyTUVFtahjf0mB3dZT77u+8O0QB89jFdnBkd5P1JgYPbPaia3gXXOVL2fq8VyU2gMMD7SaN7QukTB/pmXYvDA==
-  /ienoopen/1.0.0:
+  /ienoopen/1.1.0:
     dev: false
+    engines:
+      node: '>=4.0.0'
     resolution:
-      integrity: sha1-NGpCj0dKrI9QzzeE6i0PFvYr2ms=
+      integrity: sha512-MFs36e/ca6ohEKtinTJ5VvAJ6oDRAYFdYXweUnGY9L9vcoqFOU4n2ZhmJ0C4z/cwGZ3YIQRSB3XZ1+ghZkY5NQ==
   /indexof/0.0.1:
     dev: false
     resolution:
@@ -1464,11 +1477,11 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   body-parser: ^1.18.3
-  cookie-parser: ^1.4.3
+  cookie-parser: ^1.4.4
   cors: ^2.8.5
   express: ^4.16.4
   express-session: ^1.15.6
-  helmet: ^3.15.0
+  helmet: ^3.16.0
   mongodb: ^3.1.11
   passport: ^0.4.0
   passport-github: ^1.1.0

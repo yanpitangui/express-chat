@@ -1,0 +1,91 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: Black;
+}
+
+.containerTituloLogin {
+  display: flex;
+  flex: 1;
+  min-height: 60px;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.containerTituloLogin p {
+  color: white;
+  font-size:3.6em;
+  font-weight:bolder;
+  margin-top: 15px;
+}
+
+.containerCorpoLogin {
+  min-height: 250px;
+  display: flex;
+  flex: 9;
+  justify-content: center;
+  align-items: center;
+  background-color: Black;
+}
+
+.divLogin {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgba(255,255,255,0.5);
+  height: 50vh;
+  width: 35vw;
+  min-height: 250px;
+  min-width: 350px;
+  border-radius: 7px;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.tituloDivLogin {
+  display: flex;
+  flex: 3;
+  color: white;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black;
+  min-height: 35px;
+  font-size: 2.2em;
+  font-weight:bolder;
+  align-items: center;
+  margin-top: 10px;
+  white-space: nowrap;
+}
+
+.logoGit {
+  display: flex;
+  flex: 2;
+  align-items: center;
+  min-height: 100px;
+}
+
+.divBtnLogin {
+  flex: 3;
+}
+
+#btnLogin {
+  font-weight: bolder;
+  background: white;
+  color: black;
+  border-radius: 3px;
+  border: solid black 1px;
+  padding: 7px;
+}
+
+#btnLogin:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+}

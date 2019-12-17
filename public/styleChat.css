@@ -13,7 +13,7 @@
 
   .cabecalhoChat {
       flex: 1;
-      background-color: lightblue;
+      background-color: #075E54;
       display: flex;
       min-height: 60px;
       flex-wrap: wrap;    
@@ -72,7 +72,7 @@
 
   .listaOnline {
       flex: 2;
-      background-color: #427DAF;
+      background-color: #128C7E;
       border-radius: 3px;
       align-items: stretch;
       padding: 15px;
@@ -84,20 +84,19 @@
       display: flex;  
       flex-direction: column;
       margin:10px;
-      
+      background-image: url("https://cdn.glitch.com/054ae6c2-367c-4bd7-bc58-3f0aee51ecc4%2Fbackground.png?v=1571241880734");
   }
 
   .chat {
       padding: 15px;
       border-radius: 3px;
-      background-color: #CBEEF3;
+      /*background-color: #CBEEF3;*/      
       flex: 12;
-      margin-bottom:10px;
       overflow-y:auto
   }
 
   .msgTyping {
-      padding: 15px;
+      padding: 10px;
       border-radius: 3px;
       flex: 0.01; 
       display: flex;
@@ -107,12 +106,13 @@
 
   .msgBox {
       padding: 0px 0px 0px 0px;
-      border-radius: 3px;
-      background-color:#94AEB1;
+      border-radius: 10px;
+      background-color:white;
       flex: 1.5; 
       display: flex;
       justify-content: center;     
       min-height: 40px;
+      margin: 15px;
   }
 
   .messagesLimpa {
@@ -128,6 +128,7 @@
   .inputMensagem {
     display: flex;
     flex:1;
+    border-radius: 25%;
   }
   
   .inputMensagem input {
@@ -137,7 +138,8 @@
     outline: 0;
     border-width: 0 0 2px;
     border-color: Green;
-    background-color:#94AEB1;
+    /*background-color:#94AEB1;*/
+    
   }
 
   .containerBtn {
@@ -146,11 +148,12 @@
     align-items: center;
     justify-content: center; 
     min-width: 100px;
+    border-radius: 0px 3px 3px 0px;
   }
 
   .btnEnviar {
     font-weight: bolder;
-    background: Green;
+    background: #25D366;
     color: white;
     border: solid Green 1px;
     padding: 3px;
@@ -178,6 +181,5 @@
   }
 
   #messages li:nth-child(odd) { 
-    background: white;
     border-radius: 3px;
   }

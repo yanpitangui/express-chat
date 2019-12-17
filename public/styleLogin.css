@@ -11,6 +11,22 @@ body {
   background-color: Black;
 }
 
+.containerTituloLogin p {
+  color: white;
+  font-size:3.6em;
+  font-weight:bolder;
+  margin-top: 15px;
+}
+
+@media screen and (max-width: 419px) {
+  .containerTituloLogin p{
+    color: white;
+    font-size:2.2em;
+    font-weight:bolder;
+    margin-top: 15px;
+  }
+}
+
 .containerTituloLogin {
   display: flex;
   flex: 1;
@@ -18,13 +34,6 @@ body {
   justify-content: center;
   align-items: center;
   background-color: black;
-}
-
-.containerTituloLogin p {
-  color: white;
-  font-size:3.6em;
-  font-weight:bolder;
-  margin-top: 15px;
 }
 
 .containerCorpoLogin {
